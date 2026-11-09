@@ -7,7 +7,7 @@ export const metadata = { title: "Page Not Found" };
 
 export default function NotFound() {
   return (
-    <LangProvider value="en">
+    <LangProvider lang="en">
       <Header />
       <main id="main">
         <div className="wrap gutter view" style={{ minHeight: "46vh" }}>

@@ -30,7 +30,7 @@ export default async function PageView({
     const station = live.stations.find((s) => s.slug === slug);
     if (!station) notFound();
     return (
-      <LangProvider value={lang}>
+      <LangProvider lang={lang}>
         <Header />
         <main id="main">
           <StationPage live={live} station={station} />
@@ -70,7 +70,7 @@ export default async function PageView({
   }
 
   return (
-    <LangProvider value={lang}>
+    <LangProvider lang={lang}>
       <Header />
       <main id="main">{body}</main>
       <Footer />
