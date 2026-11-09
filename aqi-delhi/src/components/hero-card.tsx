@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 import Link from "next/link";
-import { SCALE, band, quips, stamp, type Band } from "@/lib/aqi";
+import { SCALE, band, grapLabel, quips, quipsHi, stamp, type Band } from "@/lib/aqi";
 import { href, t } from "@/lib/i18n";
 import type { Live } from "@/data/snapshot";
 import { useLang } from "./lang-context";
@@ -52,7 +52,7 @@ export default function HeroCard({ initial }: { initial: Live }) {
         <Chip band={b} label={lang === "hi" ? b.hi : b.k} />
       </div>
 
-      <p className="quip">{quips[SCALE.indexOf(b)]}</p>
+      <p className="quip">{lang === "hi" ? quipsHi[SCALE.indexOf(b)] : quips[SCALE.indexOf(b)]}</p>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 16px" }}>
         {diff != null && (

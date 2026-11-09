@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ADVICE, SCALE, band, bandIndex } from "@/lib/aqi";
+import { ADVICE, ADVICE_HI, SCALE, band, bandIndex, grapLabel } from "@/lib/aqi";
 import { href, t } from "@/lib/i18n";
 import type { Live } from "@/data/snapshot";
 import { useLang } from "../lang-context";
@@ -51,7 +51,7 @@ export default function Health({ live }: { live: Live }) {
             )}
           </p>
           <p style={{ margin: 0, fontSize: 14 }}>
-            <b>GRAP:</b> {s.grap_stage} ·{" "}
+            <b>GRAP:</b> {grapLabel(s.grap_stage, lang)} ·{" "}
             <a href="https://caqm.nic.in/" target="_blank" rel="noopener">
               {t(lang, "caqm")}
             </a>
@@ -78,14 +78,14 @@ export default function Health({ live }: { live: Live }) {
         </div>
 
         <p style={{ fontSize: 18, fontWeight: 600, margin: "0 0 16px", color: b.fg }}>
-          {lang === "hi" ? ADVICE[shown].impact.replace(/\.$/, "") + "।" : ADVICE[shown].impact}
+          {lang === "hi" ? ADVICE_HI[shown].impact : ADVICE[shown].impact}
         </p>
 
         <div className="adv" style={{ ["--c" as string]: b.hex }}>
           <div className="sheet">
             <h3>{t(lang, "everyone")}</h3>
             <ul style={{ margin: 0 }}>
-              {ADVICE[shown].gen.map((x) => (
+              {(lang === "hi" ? ADVICE_HI[shown].gen : ADVICE[shown].gen).map((x) => (
                 <li key={x}>{x}</li>
               ))}
             </ul>
@@ -93,7 +93,7 @@ export default function Health({ live }: { live: Live }) {
           <div className="sheet">
             <h3>{t(lang, "sensitive")}</h3>
             <ul style={{ margin: 0 }}>
-              {ADVICE[shown].sen.map((x) => (
+              {(lang === "hi" ? ADVICE_HI[shown].sen : ADVICE[shown].sen).map((x) => (
                 <li key={x}>{x}</li>
               ))}
             </ul>

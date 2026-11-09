@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ADVICE, SCALE, band, bandIndex, haversine, isDelayed, stamp } from "@/lib/aqi";
+import { ADVICE, ADVICE_HI, SCALE, band, bandIndex, haversine, isDelayed, stamp } from "@/lib/aqi";
 import { href, t } from "@/lib/i18n";
 import type { Live, Station } from "@/data/snapshot";
 import { useLang } from "../lang-context";
@@ -205,13 +205,13 @@ export default function StationPage({
             {reported && idx != null ? (
               <>
                 <ul style={{ margin: "0 0 12px" }}>
-                  {ADVICE[idx].gen.map((x) => (
+                  {(lang === "hi" ? ADVICE_HI[idx].gen : ADVICE[idx].gen).map((x) => (
                     <li key={x}>{x}</li>
                   ))}
                 </ul>
                 <p style={{ margin: "0 0 6px", fontWeight: 600 }}>{t(lang, "sensitive")}</p>
                 <ul>
-                  {ADVICE[idx].sen.map((x) => (
+                  {(lang === "hi" ? ADVICE_HI[idx].sen : ADVICE[idx].sen).map((x) => (
                     <li key={x}>{x}</li>
                   ))}
                 </ul>

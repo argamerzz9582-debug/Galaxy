@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { SCALE, band, quips, stamp } from "@/lib/aqi";
+import { SCALE, band, grapLabel, quips, stamp } from "@/lib/aqi";
 import { href, t } from "@/lib/i18n";
 import type { Live } from "@/data/snapshot";
 import { useLang } from "../lang-context";
@@ -184,7 +184,7 @@ export default function Home({
             </div>
             <div className="sheet">
               <span className="hint" style={{ margin: 0 }}>GRAP</span>
-              <b style={{ fontFamily: "var(--serif)", fontSize: 24 }}>{s.grap_stage}</b>
+              <b style={{ fontFamily: "var(--serif)", fontSize: 24 }}>{grapLabel(s.grap_stage, lang)}</b>
               <p style={{ margin: "4px 0 0", fontSize: 13, color: "var(--ink-3)" }}>
                 <a href="https://caqm.nic.in/" target="_blank" rel="noopener">
                   {t(lang, "caqm")} ↗
