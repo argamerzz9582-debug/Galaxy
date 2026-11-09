@@ -1,8 +1,9 @@
+import { SITE } from "@/lib/seo";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aqi-delhi.vercel.app"),
+  metadataBase: new URL(SITE),
   title: {
     default: "Delhi AQI Today: Live Air Quality & Health Advisory",
     template: "%s | Delhi AQI",

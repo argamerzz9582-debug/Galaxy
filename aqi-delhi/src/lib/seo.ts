@@ -1,3 +1,5 @@
+export const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://delhi-aqi-ruby.vercel.app";
+
 import type { Metadata } from "next";
 import type { Lang } from "./i18n";
 import type { View } from "@/components/page-view";

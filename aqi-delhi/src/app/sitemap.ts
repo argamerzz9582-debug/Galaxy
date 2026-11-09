@@ -1,7 +1,8 @@
+import { SITE } from "@/lib/seo";
 import type { MetadataRoute } from "next";
 import { snapshot } from "@/data/snapshot";
 
-const BASE = "https://aqi-delhi.vercel.app";
+const BASE = SITE;
 const PAGES = ["", "live", "stations", "health", "about", "faq", "sameer"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
